@@ -26,9 +26,8 @@ public class DropdownBox {
 	
 	JButton selectOptions = new JButton("Select Options"); // This creates a button.
 	
-	//JLabel emptyspace = new JLabel (""); //This creates an empty space, so the GUI looks nice.
-
-	
+	JLabel chosenOptions = new JLabel (""); 
+		
 	
 	public DropdownBox() {
 		
@@ -54,25 +53,27 @@ public void frame() {
 	p.add(backgroundColorLabel);
 	p.add(backgroundColor);
 	p.add(selectOptions);
+	p.add(chosenOptions);
 
 	f.add(p); // Now we add the panel to the frame.
 
-	//selectOptions.addActionListener(new ActionListener () { //When the button is clicked...
-		//public void actionPerformed (ActionEvent e) {
-			//String laptoptype_s = laptoptype.getSelectedItem().toString(); // Obtain the answer choice from the drop down box.
-			//String computercost_s = computercost.getText();	// Obtain the input in the text field as a string.		
-			//double computercost_n = Double.parseDouble(computercost_s); // This converts the string into a double.
-			//computer_costcalculations.setText("Computer Cost: $" + computercost_n); // Set the text in the JLabel to this.
-			//total_costcalculations.setFont(new Font("Calibri", Font.BOLD, 16));
+	selectOptions.addActionListener(new ActionListener () { //When the button is clicked...
+		public void actionPerformed (ActionEvent e) {
+			String desiredText = sampleText.getText();	// Obtain the input in the text field as a string.		
+			String familyChosen = fontFamily.getSelectedItem().toString(); // Obtain the answer choice from the drop down box, add it to a string for the chosen
+			String styleChosen = fontStyle.getSelectedItem().toString();
+			String foregroundChosen = fontColor.getSelectedItem().toString();
+			String bgChosen = backgroundColor.getSelectedItem().toString();
+			chosenOptions.setText(familyChosen + styleChosen + foregroundChosen +bgChosen);  //set text in the JLabel equal to the chosen options
+			
 
-	//	}
-//	});
-	
-}
-	
-
-public static void main(String[] args)
-	{
-	new DropdownBox();
 	}
+	});
+	
 }
+public static void main(String[] args)
+{new DropdownBox();}
+
+}
+
+
