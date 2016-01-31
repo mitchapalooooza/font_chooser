@@ -12,6 +12,8 @@ public class SplitMethod
 	   System.out.print(firstFirst[0]);
       }
 }
+"the quick"
+"brown fox"
 
 
 //List<String> list = Arrays.asList(string.split());
