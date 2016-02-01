@@ -15,37 +15,41 @@ public class ShowFonts
       Vector<String> styles = new Vector<>();			
       String[][] full = new String[names.length][5];
       
-      
       for ( int x=0; x<names.length; x++ ){
       	String convertNames= names[x];
       	ArrayList<String> wordArrayList = new ArrayList<String>();
       		for(String word : convertNames.split(" ")) {
       			wordArrayList.add(word);}
       		for (int y = 0; y< wordArrayList.size(); y++) {
-      			full[x][y] = wordArrayList.get(y);}
+      			full[x][y] = wordArrayList.get(y);
+      			//if (wordArrayList.get(y)==null){full[x][y]=" ";}
+      					}
       		
-      }
-      
-
+  
+     
+//THIS CODE DOESENT WORK BECAUSE IT WONT TAKE "null"      
       for(int z = 1; z < names.length; z++) { 
+    	  String convertNames1= names[z-1];
     	  int repeat= 0;
-    		  if (!full[z][0].equals(full[z-1][0])) {repeat=0;System.out.println(repeat);}
+    		  if (!full[z][0].equals(full[z-1][0])) {
+    			  families.add(full[z-1][0]);}
     		  else{
-    			  if (!full[z][1].equals(full[z-1][1])) {repeat=1;System.out.println(repeat);}
+    			  if (!full[z][1].equals(full[z-1][1])) {
+    				  families.add(full[z-1][1]);}
     			  else{
-        			  if (!full[z][2].equals(full[z-1][2])) {repeat=2;System.out.println(repeat);}
+        			  if (!full[z][2].equals(full[z-1][2])) {
+        				  families.add(full[z-1][2]);}
         			  else{
-            			  if (!full[z][3].equals(full[z-1][3])) {repeat=3;System.out.println(repeat);}
+            			  if (!full[z][3].equals(full[z-1][3])) {
+            				  families.add(full[z-1][3]);}
             			  else{
-                			  if (!full[z][4].equals(full[z-1][4])) {repeat=4;System.out.println(repeat);}
+                			  if (!full[z][4].equals(full[z-1][4])) {
+                				  families.add(full[z-1][0]);}
                 			  }}}
-    	 }}
+    		  }}}
       }
       }
 
-    			  
-    		  
-    		  
     		  
     		  
 /*    		  
