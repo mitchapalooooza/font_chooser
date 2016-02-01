@@ -2,166 +2,121 @@ import java.awt.GraphicsEnvironment;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-
+import java.util.Vector;
 public class ShowFonts
 {
-   public static void main ( String [] args )
+
+	public static void main ( String [] args )
       {
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       String[] names = ge.getAvailableFontFamilyNames();
       
-      ArrayList families = new ArrayList();
-      ArrayList styles = new ArrayList();
-    
-
-      for ( int x=0; x<3; x++ ){
-      	String convertNames= names[x];
-      	String[] splitName= convertNames.split(" ",2);
-      		if (!families.contains(splitName[0])) {families.add(splitName[0]);}
-      		if (!styles.contains(splitName[1])) {styles.add(convertNames);}
-      	 System.out.println(families);
-      	 System.out.println(styles);
-      	
+      Vector<String> families = new Vector<>();
+      Vector<String> styles = new Vector<>();			
+      String[][] full = new String[names.length][5];
       
-      	
-      	}
-      	
-      	//families.add(splitName[0]);
-      	
-      	//System.out.println(families);
-      	
-      	
-      	//System.out.println(Arrays.toString(convertNames.split(" ", 2)));
+      
+      for ( int x=0; x<names.length; x++ ){
+      	String convertNames= names[x];
+      	ArrayList<String> wordArrayList = new ArrayList<String>();
+      		for(String word : convertNames.split(" ")) {
+      			wordArrayList.add(word);}
+      		for (int y = 0; y< wordArrayList.size(); y++) {
+      			full[x][y] = wordArrayList.get(y);}
       		
       }
-}
       
-      
-      
-      
-      
-   
-    /*  public static String getFirstWord(String convertNames){
-      	String[] numWord= convertNames.split(" ");
-      	return numWord[0];}}
-      	
-    /*  	public static String getRestWord(String convertNames){
-          	String[] restWord= convertNames.split(" ",2);
-          	return System.out.println(Arrays.toString(convertNames.split(" ", 2)));
-      
-     
-     
-     
-          	String o = "This is a string";
-          	 System.out.println(Arrays.toString(o.split(" ", 2)));
-          
-          	 String o = "This is a string";
-          	 String [] arr = o.split(" ", 2);
-
-          	 arr[0] // This
-          	 arr[1] // is a string
-     *?
-     
-     
+      families.add(full[0][0]);
+      for(int z = 1; z < names.length; z++) {  
+    	  if (!full[z][0].equals(full[z-1][0])) {
+    		  families.add(full[z][0]);
+    		  styles.add(full[z][1]+" "+full[z][2]+" "+full[z][3]+" "+ full[z][4]);}
+    	  else {families.add("equal");}
       }
-}
-      /*ArrayList family= new ArrayList();
-      
-      if (getFirstWord(names[0])==getFirstWord(names[1])){
-    	  if (getSecondWord(names[0])==getSecondWord(names[1])){
-    		  if (getThirdWord(names[0])==getThirdWord(names[1])){
-    			  
-    			  if (getFourthWord(names[0])==getFourthWord(names[1])){
-    				  System.out.print("This is too big a family");}
-    			  else{family.add(getFirstWord(names[0])+getSecondWord(names[0])+getThirdWord(names[0]));}
-    			  }
-    			  
-    		  else{family.add(getFirstWord(names[0])+getSecondWord(names[0]));}
-    		else{family.add(getFirstWord(names[0]));}
-    		  
-    		  
-    			  family.add(getFirstWord(names[0]));
-    			  getFirstWord(names[0])+getSecondWord(names[0])+getThirdWord(names[0])
-    			  
-    		  }
-    	  }
     	  
-    	  
-    	  
-    	  System.out.print("equal");}
-    	  else{family.add(getFirstWord(names[0]));
-    	  
-    System.out.print(family);
-      }
-      //System.out.println(getFirstWord(names[0]));
-   
-      }
+  System.out.println(families);
+  System.out.println(styles);
+      }}
   
-    public static String getFirstWord(String convertNames){
-    	String[] numWord= convertNames.split(" ");
-    	
-    	return numWord[0];}
-    public static String getSecondWord(String convertNames){
-        String[] numWord= convertNames.split(" ");
-        return numWord[1];}
-    public static String getThirdWord(String convertNames){
-        String[] numWord= convertNames.split(" ");
-        return numWord[2];}
-    public static String getFourthWord(String convertNames){
-        String[] numWord= convertNames.split(" ");
-        return numWord[3];}
-    }
-    
-    
-    
-    
-	for (int j = 0; j < 100; j++) {
-		numWord = getFirstWord(names[j])
-		Sting[] families = new string[100]
-		families[j]= numWord[0];
-		String[] types
-		for (int z =1; z< numWord.length; z++) {
-			types[j] += numWord[z]
-		}
-    }  
-    for (int j = 0; j < 100; j++) {
-    	while
+//convertNames.split(" ", repeat);
 
-//for ( int x=0; x<2; x++ ){
-	//String convertNames= names[x];
-	 //System.out.println(convertNames);
-	  
-	  //String[] numWord=convertNames.split(" ");}
+    	  
+   /* 	  	  
+    		
+    		  for(int z = 1; z < names.length; z++) {  
+    	  if (!full[z][0].equals(full[z-1][0])) {families.add(full[z][0]);}
+    	  else{if (!full[z][1].equals(full[z-1][1])) {families.add(full[z][0]+full[z][1]);}
+		  else{
+			  if (!full[z][2].equals(full[z-1][2])) {families.add(full[z][0]+full[z][1]+full[z][2]);}
+		    		  else{
+		    			  if (!full[z][3].equals(full[z-1][3])) {families.add(full[z][0]+full[z][1]+full[z][2]+full[z][3]);}
+		    		    		  else{
+		    		    				if (!full[z][4].equals(full[z-1][4])) {families.add(full[z][0]+full[z][1]+full[z][2]+full[z][3]+full[z][4]);}
+		    		    		    		  else{System.out.println("This family is giant");}
+		    		    		  }}}}}
+    		  
+    		  
+    /*		  
+    		  if (!full[z][1].equals(full[z-1][1])) {families.add(full[z][1]);}
+    
+    		  else{
+    		  if (!full[z][2].equals(full[z-1][2])) {families.add(full[z][2]);}
+    		  else{
+    		  if (!full[z][3].equals(full[z-1][3])) {families.add(full[z][3]);}
+    		  else{
+    		  if (!full[z][4].equals(full[z-1][4])) {
+    			  families.add(full[z][4]);
+    			  families.add(full[z-1][4]);}
+    	    		  }}}}}
       
-      
-      //x is the order of the list names
-     // for ( int x=0; x<names.length; x++ )
-   //      {
-    	// System.out.println(names[0]+names[1]);
+    	  
+    	  
+    	  
+    	  
+    	  System.out.println(families);
+}
+}
 
-    	  //String convertNames= names[x];  
-    	  //System.out.println(convertNames);
-    	  
-    	// for names[0]
-    		//	if numWord[0]= numWord[0] of names[1]
-    		//			 add numWord[0] to list "font family"
-    		//	if numWord[0] does not equal numWord[0] of names[1]
-    	    			
-    	  
+/*    	
+    		      	  if (full[z][0].equals(full[z+1][0])) {
+    		  if (full[z][1].equals(full[z+1][1])) {
+    			  if (full[z][2].equals(full[z+1][2])) {
+    	    		  if (full[z][3].equals(full[z+1][3])) {
+    	    			  if (full[z][4].equals(full[z+1][4])) {System.out.print("This family is giant");}
+    	    			  else {families.add(full[z][4]);}}
+    	    		else {families.add(full[z][3]);}}
+    	    		else {families.add(full[z][2]);}}
+    	    		else {families.add(full[z][1]);}}
+    	    		else {families.add(full[z][0]);}}
     	
-   	  // 	  String[] numWord=convertNames.split(" ");
+    		  
+    		  families.add(full[z][0]);}
+    	  
+    	  
+    	  (!full[z][0].equals(full[z+1][0])) {families.add(full[z][0]);}
+      }
+      		
+      }
+      }
+
+      
+
+      
+
+      
+
+
+
+/*
+    for(int z = 0, n = 0; z < names.length && n < names.length; z++, n++) {
+    	if (!full[z][n].equals(full[z+1][n])) {families.add(full[z][n]);}
+    	else{System.out.print("equal");}
+          
+    for(int z = 0; z < names.length; z++) {
+    	  System.out.println(full[z][0]);
+    System.out.println(families);
+    System.out.println(full[]);
+    		 */
     	 
     	  
-    	  //numWord[0]
-    	  
-    	  
-    	  */
-    	  
-    	  
-    	  
-    	  
-    	  
       
-   
-
