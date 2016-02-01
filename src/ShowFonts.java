@@ -26,9 +26,29 @@ public class ShowFonts
       		
       }
       
-      families.add(full[0][0]);
-      for(int z = 1; z < names.length; z++) {  
-    	  if (!full[z][0].equals(full[z-1][0])) {
+
+      for(int z = 1; z < names.length; z++) { 
+    	  int repeat= 0;
+    		  if (!full[z][0].equals(full[z-1][0])) {repeat=0;System.out.println(repeat);}
+    		  else{
+    			  if (!full[z][1].equals(full[z-1][1])) {repeat=1;System.out.println(repeat);}
+    			  else{
+        			  if (!full[z][2].equals(full[z-1][2])) {repeat=2;System.out.println(repeat);}
+        			  else{
+            			  if (!full[z][3].equals(full[z-1][3])) {repeat=3;System.out.println(repeat);}
+            			  else{
+                			  if (!full[z][4].equals(full[z-1][4])) {repeat=4;System.out.println(repeat);}
+                			  }}}
+    	 }}
+      }
+      }
+
+    			  
+    		  
+    		  
+    		  
+    		  
+/*    		  
     		  families.add(full[z][0]);
     		  styles.add(full[z][1]+" "+full[z][2]+" "+full[z][3]+" "+ full[z][4]);}
     	  else {families.add("equal");}
@@ -38,7 +58,7 @@ public class ShowFonts
   System.out.println(styles);
       }}
   
-//convertNames.split(" ", repeat);
+convertNames.split(" ", repeat);
 
     	  
    /* 	  	  
