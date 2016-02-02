@@ -1,0 +1,14 @@
+If we were more experienced programmers, our project would extend the "family and styles" lists:
+	For each font:
+		-Test first word, and compare it to the first word of the next font
+			-If the first words are different, the first word of the first font is its own family.
+			-If the first words are the same, test the second word of the first font and the second word of the second font. 
+				-Continue testing the fonts this way until the corresponding words to do not match, all the words that do match constitute the family, the left over words constitute the style
+
+	We would create a 2D array:
+		array[0] would be the family
+		array[1] would be a list of all the styles that begin with the family
+
+	Taking this one step further, our output panels would become dynamically linked so that when a font family (array[0]) was clicked, the styles would be updated to display the corresponding styles (array[1])
+
+	
